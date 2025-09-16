@@ -1,7 +1,7 @@
-on:
+on：
+  workflow_dispatch:
   schedule:
     - cron: 10 14 * * *
-
 name: Sync to Gitee
 jobs:
   run:
@@ -16,3 +16,5 @@ jobs:
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
           static_list: "ohmyzsh"
+          force_update: true
+          debug: true
