@@ -1,0 +1,18 @@
+on:
+  schedule:
+    - cron: 10 14 * * *
+
+name: Sync to Gitee
+jobs:
+  run:
+    name: Run
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mirror Github to Gitee
+        uses: Yikun/hub-mirror-action@v1.5
+        with:
+          src: github/ohmyzsh
+          dst: gitee/congxy
+          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+          dst_token: ${{ secrets.GITEE_TOKEN }}
+          static_list: "ohmyzsh"
