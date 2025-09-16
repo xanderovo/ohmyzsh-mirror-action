@@ -18,3 +18,9 @@ jobs:
           static_list: "ohmyzsh"
           force_update: true
           debug: true
+      - name: notice
+        uses: zzzze/webhook-trigger@master
+        with:
+          data: "{\"message\": \"Mirror ohmyzsh to Gitee end\"}"
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          options: "-H \"Content-Type: application/json\" -H \"Authorization: Bearer ${{ secrets.TOKEN }}\""
