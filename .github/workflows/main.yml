@@ -25,11 +25,3 @@ jobs:
           data: '{"message": "Mirror ohmyzsh to Gitee end"}'
           webhook_url: ${{ secrets.WEBHOOK_URL }}
           options: '-H "Content-Type: application/json" -H "Authorization: Bearer ${{ secrets.TOKEN }}"'
-
-      - name: delete old workflow run
-        uses: Mattraks/delete-workflow-runs@main
-        with:
-          token: ${{ github.token }}
-          repository: ${{ github.repository }}
-          retain_days: 14
-          keep_minimum_runs: 14
